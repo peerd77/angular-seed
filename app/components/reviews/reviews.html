@@ -1,7 +1,82 @@
 ﻿<div class="container-fluid">
     <div class="row">
-        <div class="col-xs-offset-3 col-xs-6">
-            test
+        <div class="col-xs-offset-3 col-xs-6 text-center p-margin-v-15">
+            <span>User Reviews</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10 text-center">
+            <div ng-repeat="i in $ctrl.modelList">
+                <div class="panel panel-default" ng-hide="i.showEdit">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="pull-right p-margin-5">
+                                <span class="glyphicon glyphicon-pencil" ng-click="i.showEdit = true;"></span>
+                                <span class="glyphicon glyphicon-erase" role="button" ng-click="$ctrl.deleteReview(i)"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <a href="#" class="thumbnail">
+                                    <img src="" alt="No Pic">
+                                </a>
+                            </div>
+                            <div class="col-xs-8 text-left">
+                                <div class="row">
+                                    <div class="col-xs-12 p-font-bold">
+                                        {{i.Name}}
+                                    </div>
+                                    <div class="col-xs-12">
+                                        {{i.Content}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="panel panel-default" ng-show="i.showEdit">
+                    <div class="panel-body">
+                        <form>
+                            <div class="form-group">
+                                <input type="text" ng-model="i.Name" class="form-control" placeholder="Your Name">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" ng-model="i.Content" placeholder="Your Content" style="min-height:100px"></textarea>
+                            </div>
+                            <button ng-click="$ctrl.editReview(i)"
+                                    class="btn btn-default pull-right p-font-bold"
+                                    style="color:white; background-color:cornflowerblue">
+                                <span>Save</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-offset-1 col-xs-10 text-center">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" ng-model="$ctrl.model.Name" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" ng-model="$ctrl.model.Content" placeholder="Your Content" style="min-height:100px"></textarea>
+                        </div>
+                        <button ng-click="$ctrl.addReview()"
+                                class="btn btn-default pull-right p-font-bold"
+                                style="color:white; background-color:cornflowerblue">
+                            <span>Add</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>

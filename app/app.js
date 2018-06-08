@@ -18,7 +18,7 @@
             .state('app', {
                 url: '/app',
                 abstract: true,
-                templateUrl: "../app/app.html",
+                templateUrl: "./app.html",
                 controller: "AppCtrl"
             })
             .state('app.reviews', {
