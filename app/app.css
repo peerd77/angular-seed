@@ -41,3 +41,9 @@
 .p-font-bold{
     font-weight:bold;
 }
+
+@media (min-width: 640px) {
+    .container-custom {
+        width: 640px;
+    }
+}
