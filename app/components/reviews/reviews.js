@@ -51,13 +51,19 @@
         }
 
         service.add = function (model) {
+            let globalIdCounter = angular.fromJson(sessionStorage.getItem('globalIdCounter'));
+            if (!globalIdCounter) {
+                globalIdCounter = 0;
+            }
             let list = angular.fromJson(sessionStorage.getItem('reviewList'));
             let listLength = list ? list.length : 0;
-            model.id = listLength + 1;
+            model.id = globalIdCounter + 1;
             if (listLength === 0)
                 list = [];
             list.push(model);
+            globalIdCounter++;
             sessionStorage.setItem('reviewList', angular.toJson(list));
+            sessionStorage.setItem('globalIdCounter', angular.toJson(globalIdCounter));
             return list;
 
         }
