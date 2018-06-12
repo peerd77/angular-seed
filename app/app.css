@@ -42,7 +42,7 @@
     font-weight:bold;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 1200px) {
     .container-custom {
         width: 640px;
     }
